@@ -84,7 +84,7 @@ async def start(bot, message):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                
+                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
                     ],
                     [
                         InlineKeyboardButton('🔍 Search again 🔎', switch_inline_query_current_chat='')
@@ -115,21 +115,17 @@ async def start(bot, message):
         await cmd.reply_video(
             video="https://telegra.ph/file/e9dda2769fad138590ee3.mp4",
             caption=START_MSG,
-          reply_markup=InlineKeyboardMarkup(
-            [
-               [
+            reply_markup=InlineKeyboardMarkup(
                 [[
-                InlineKeyboardButton("🔎Search Here🔎", switch_inline_query_current_chat=''),
-                InlineKeyboardButton("𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗖𝗵𝗮𝗻𝗻𝗲𝗹♻️", url="https://t.me/Latest_Movie_Mediaa")
+                InlineKeyboardButton("Search Here", switch_inline_query_current_chat=''),
+                InlineKeyboardButton("More Botz", url="https://t.me/MT_Botz")
                 ],[
-                InlineKeyboardButton("𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗚𝗿𝗼𝘂𝗽⚠️", url="https://t.me/Latest_Movie_Media"),
-                InlineKeyboardButton("𝗢𝘄𝗻𝗲𝗿 ♻️", url="https://t.me/Lucifer_DevilZ")
+                InlineKeyboardButton("Help", callback_data="help"),
+                InlineKeyboardButton("About", callback_data="about")
                 ]]
-                ]
-             ]
-         )
-     )
-        
+            )
+        )
+        StopPropagation
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
@@ -337,8 +333,8 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Group', url='https://t.me/Latest_Movie_Media'),
-            
+            InlineKeyboardButton('More Botz', url='https://t.me/MT_Botz'),
+            InlineKeyboardButton('Video', url=f'{TUTORIAL}')
         ]
         ]
     await message.reply(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
